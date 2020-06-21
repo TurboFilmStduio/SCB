@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "simple_command_blocks:block/command_construct"
+    }
+  }
+}

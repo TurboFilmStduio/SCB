@@ -1,0 +1,494 @@
+{
+  "_fv": 8,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 352,
+    "height": 332,
+    "renderBgLayer": true,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Command Construct",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "name": "Command Construct",
+          "x": 246,
+          "y": 42
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": true,
+          "onTakenFromSlot": {
+            "name": "SaveAndClose"
+          },
+          "name": "Slot #0",
+          "x": 30,
+          "y": 78
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 1,
+          "disableStackInteraction": true,
+          "name": "Slot #1",
+          "x": 84,
+          "y": 78
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 2,
+          "disableStackInteraction": true,
+          "name": "Slot #2",
+          "x": 138,
+          "y": 78
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 3,
+          "disableStackInteraction": true,
+          "name": "Slot #3",
+          "x": 192,
+          "y": 78
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 4,
+          "disableStackInteraction": true,
+          "name": "Slot #4",
+          "x": 30,
+          "y": 132
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 5,
+          "disableStackInteraction": true,
+          "name": "Slot #5",
+          "x": 84,
+          "y": 132
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 6,
+          "disableStackInteraction": true,
+          "name": "Slot #6",
+          "x": 138,
+          "y": 132
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 7,
+          "disableStackInteraction": true,
+          "name": "Slot #7",
+          "x": 192,
+          "y": 132
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 8,
+          "disableStackInteraction": true,
+          "name": "Slot #8",
+          "x": 30,
+          "y": 186
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 9,
+          "disableStackInteraction": true,
+          "name": "Slot #9",
+          "x": 84,
+          "y": 186
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 10,
+          "disableStackInteraction": true,
+          "name": "Slot #10",
+          "x": 138,
+          "y": 186
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 11,
+          "disableStackInteraction": true,
+          "name": "Slot #11",
+          "x": 192,
+          "y": 186
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 12,
+          "disableStackInteraction": true,
+          "name": "Slot #12",
+          "x": 30,
+          "y": 240
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 13,
+          "disableStackInteraction": true,
+          "name": "Slot #13",
+          "x": 84,
+          "y": 240
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 14,
+          "disableStackInteraction": true,
+          "name": "Slot #14",
+          "x": 138,
+          "y": 240
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 15,
+          "disableStackInteraction": true,
+          "name": "Slot #15",
+          "x": 192,
+          "y": 240
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 16,
+          "disableStackInteraction": true,
+          "name": "Slot #16",
+          "x": 30,
+          "y": 294
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 17,
+          "disableStackInteraction": true,
+          "name": "Slot #17",
+          "x": 84,
+          "y": 294
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 18,
+          "disableStackInteraction": false,
+          "name": "Slot #18",
+          "x": 138,
+          "y": 294
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 19,
+          "disableStackInteraction": true,
+          "name": "Slot #19",
+          "x": 192,
+          "y": 294
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 20,
+          "disableStackInteraction": true,
+          "name": "Slot #20",
+          "x": 30,
+          "y": 348
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 21,
+          "disableStackInteraction": true,
+          "name": "Slot #21",
+          "x": 84,
+          "y": 348
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 22,
+          "disableStackInteraction": true,
+          "name": "Slot #22",
+          "x": 138,
+          "y": 348
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 23,
+          "disableStackInteraction": true,
+          "name": "Slot #23",
+          "x": 192,
+          "y": 348
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 24,
+          "disableStackInteraction": true,
+          "name": "Slot #24",
+          "x": 30,
+          "y": 402
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 25,
+          "disableStackInteraction": true,
+          "name": "Slot #25",
+          "x": 84,
+          "y": 402
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 26,
+          "disableStackInteraction": true,
+          "name": "Slot #26",
+          "x": 138,
+          "y": 402
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 27,
+          "disableStackInteraction": true,
+          "name": "Slot #27",
+          "x": 192,
+          "y": 402
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Done",
+          "width": 80,
+          "height": 40,
+          "name": "Done",
+          "x": 507,
+          "y": 420
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Add Block",
+          "onClick": {
+            "name": "AddCommandBlock"
+          },
+          "width": 180,
+          "height": 40,
+          "name": "Add Block",
+          "x": 264,
+          "y": 420
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": ">",
+          "width": 40,
+          "height": 40,
+          "name": ">",
+          "x": 318,
+          "y": 177
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "width": 240,
+          "height": 40,
+          "name": "Name",
+          "x": 264,
+          "y": 105
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Open",
+          "width": 80,
+          "height": 40,
+          "name": "Open",
+          "x": 507,
+          "y": 177
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Delete",
+          "width": 120,
+          "height": 40,
+          "name": "Delete",
+          "x": 372,
+          "y": 177
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "<",
+          "width": 40,
+          "height": 40,
+          "name": "<",
+          "x": 264,
+          "y": 177
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Save",
+          "width": 80,
+          "height": 40,
+          "name": "Save",
+          "x": 507,
+          "y": 105
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Settings",
+          "width": 160,
+          "height": 40,
+          "name": "Settings",
+          "x": 30,
+          "y": 15
+        }
+      }
+    ]
+  }
+}

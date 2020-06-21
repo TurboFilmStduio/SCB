@@ -1,0 +1,95 @@
+{
+  "id_map": {},
+  "mod_elements": [
+    {
+      "name": "CommandConstruct",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "command_construct"
+    },
+    {
+      "name": "CommandConstructGUI",
+      "type": "gui",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "command_construct_gui"
+    },
+    {
+      "name": "SaveAndClose",
+      "type": "procedure",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "save_and_close",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddCommandBlock",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "add_command_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "CurrentSlotCB",
+      "type": "number",
+      "scope": "world",
+      "value": "0"
+    }
+  ],
+  "sound_elements": [],
+  "language_map": {
+    "ru_ru": {
+      "block.simple_command_blocks.command_construct": "Командный Конструктор"
+    },
+    "en_us": {
+      "block.simple_command_blocks.command_construct": "Command Construct"
+    }
+  },
+  "workspaceSettings": {
+    "modid": "simple_command_blocks",
+    "modName": "Simple Command Blocks",
+    "version": "1.0.0",
+    "author": "Maks, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.15.2",
+    "modElementsPackage": "com.softsign.simplecb",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202000322116
+}
