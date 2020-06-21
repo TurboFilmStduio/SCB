@@ -41,14 +41,14 @@ import java.util.HashMap;
 
 import com.softsign.simplecb.procedures.SaveAndCloseProcedure;
 import com.softsign.simplecb.procedures.AddCommandBlockProcedure;
-import com.softsign.simplecb.SimpleCommandBlocksModElements;
-import com.softsign.simplecb.SimpleCommandBlocksMod;
+import com.softsign.simplecb.ScbModElements;
+import com.softsign.simplecb.ScbMod;
 
-@SimpleCommandBlocksModElements.ModElement.Tag
-public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModElement {
+@ScbModElements.ModElement.Tag
+public class CommandConstructGUIGui extends ScbModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
-	public CommandConstructGUIGui(SimpleCommandBlocksModElements instance) {
+	public CommandConstructGUIGui(ScbModElements instance) {
 		super(instance, 2);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
@@ -575,7 +575,7 @@ public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModEl
 
 		private void slotChanged(int slotid, int ctype, int meta) {
 			if (this.world != null && this.world.isRemote) {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new GUISlotChangedMessage(slotid, x, y, z, ctype, meta));
+				ScbMod.PACKET_HANDLER.sendToServer(new GUISlotChangedMessage(slotid, x, y, z, ctype, meta));
 				handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 			}
 		}
@@ -597,7 +597,7 @@ public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModEl
 			this.xSize = 176;
 			this.ySize = 166;
 		}
-		private static final ResourceLocation texture = new ResourceLocation("simple_command_blocks:textures/command_construct_gui.png");
+		private static final ResourceLocation texture = new ResourceLocation("scb:textures/command_construct_gui.png");
 		@Override
 		public void render(int mouseX, int mouseY, float partialTicks) {
 			this.renderBackground();
@@ -637,15 +637,15 @@ public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModEl
 			super.init(minecraft, width, height);
 			minecraft.keyboardListener.enableRepeatEvents(true);
 			this.addButton(new Button(this.guiLeft + 128, this.guiTop + 173, 40, 20, "Done", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(0, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(0, x, y, z));
 				handleButtonAction(entity, 0, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + 7, this.guiTop + 173, 90, 20, "Add Block", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(1, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(1, x, y, z));
 				handleButtonAction(entity, 1, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + 34, this.guiTop + 52, 20, 20, ">", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(2, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(2, x, y, z));
 				handleButtonAction(entity, 2, x, y, z);
 			}));
 			Name = new TextFieldWidget(this.font, this.guiLeft + 7, this.guiTop + 16, 120, 20, "");
@@ -653,23 +653,23 @@ public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModEl
 			Name.setMaxStringLength(32767);
 			this.children.add(this.Name);
 			this.addButton(new Button(this.guiLeft + 128, this.guiTop + 52, 40, 20, "Open", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(3, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(3, x, y, z));
 				handleButtonAction(entity, 3, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + 61, this.guiTop + 52, 60, 20, "Delete", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(4, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(4, x, y, z));
 				handleButtonAction(entity, 4, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + 7, this.guiTop + 52, 20, 20, "<", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(5, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(5, x, y, z));
 				handleButtonAction(entity, 5, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + 128, this.guiTop + 16, 40, 20, "Save", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(6, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(6, x, y, z));
 				handleButtonAction(entity, 6, x, y, z);
 			}));
 			this.addButton(new Button(this.guiLeft + -110, this.guiTop + -29, 80, 20, "Settings", e -> {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(7, x, y, z));
+				ScbMod.PACKET_HANDLER.sendToServer(new ButtonPressedMessage(7, x, y, z));
 				handleButtonAction(entity, 7, x, y, z);
 			}));
 		}
@@ -765,7 +765,6 @@ public class CommandConstructGUIGui extends SimpleCommandBlocksModElements.ModEl
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
 				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
 				AddCommandBlockProcedure.executeProcedure($_dependencies);
 			}
 		}

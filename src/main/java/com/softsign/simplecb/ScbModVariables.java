@@ -14,10 +14,9 @@ import net.minecraft.client.Minecraft;
 
 import java.util.function.Supplier;
 
-public class SimpleCommandBlocksModVariables {
+public class ScbModVariables {
 	public static class WorldVariables extends WorldSavedData {
-		public static final String DATA_NAME = "simple_command_blocks_worldvars";
-		public double CurrentSlotCB = 0;
+		public static final String DATA_NAME = "scb_worldvars";
 		public WorldVariables() {
 			super(DATA_NAME);
 		}
@@ -28,22 +27,19 @@ public class SimpleCommandBlocksModVariables {
 
 		@Override
 		public void read(CompoundNBT nbt) {
-			CurrentSlotCB = nbt.getDouble("CurrentSlotCB");
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
-			nbt.putDouble("CurrentSlotCB", CurrentSlotCB);
 			return nbt;
 		}
 
 		public void syncData(World world) {
 			this.markDirty();
 			if (world.isRemote) {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(1, this));
+				ScbMod.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(1, this));
 			} else {
-				SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType),
-						new WorldSavedDataSyncMessage(1, this));
+				ScbMod.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType), new WorldSavedDataSyncMessage(1, this));
 			}
 		}
 		static WorldVariables clientSide = new WorldVariables();
@@ -57,7 +53,7 @@ public class SimpleCommandBlocksModVariables {
 	}
 
 	public static class MapVariables extends WorldSavedData {
-		public static final String DATA_NAME = "simple_command_blocks_mapvars";
+		public static final String DATA_NAME = "scb_mapvars";
 		public MapVariables() {
 			super(DATA_NAME);
 		}
@@ -78,9 +74,9 @@ public class SimpleCommandBlocksModVariables {
 		public void syncData(World world) {
 			this.markDirty();
 			if (world.isRemote) {
-				SimpleCommandBlocksMod.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(0, this));
+				ScbMod.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(0, this));
 			} else {
-				SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new WorldSavedDataSyncMessage(0, this));
+				ScbMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new WorldSavedDataSyncMessage(0, this));
 			}
 		}
 		static MapVariables clientSide = new MapVariables();
@@ -130,10 +126,10 @@ public class SimpleCommandBlocksModVariables {
 			if (side.isServer()) {
 				message.data.markDirty();
 				if (message.type == 0) {
-					SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), message);
+					ScbMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), message);
 					world.getServer().getWorld(DimensionType.OVERWORLD).getSavedData().set(message.data);
 				} else {
-					SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType), message);
+					ScbMod.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType), message);
 					((ServerWorld) world).getSavedData().set(message.data);
 				}
 			} else {

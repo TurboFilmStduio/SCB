@@ -43,32 +43,31 @@ import java.util.ArrayList;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Retention;
 
-public class SimpleCommandBlocksModElements {
+public class ScbModElements {
 	public final List<ModElement> elements = new ArrayList<>();
 	public final List<Supplier<Block>> blocks = new ArrayList<>();
 	public final List<Supplier<Item>> items = new ArrayList<>();
 	public final List<Supplier<Biome>> biomes = new ArrayList<>();
 	public final List<Supplier<EntityType<?>>> entities = new ArrayList<>();
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
-	public SimpleCommandBlocksModElements() {
+	public ScbModElements() {
 		try {
-			ModFileScanData modFileInfo = ModList.get().getModFileById("simple_command_blocks").getFile().getScanResult();
+			ModFileScanData modFileInfo = ModList.get().getModFileById("scb").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
 			for (ModFileScanData.AnnotationData annotationData : annotations) {
 				if (annotationData.getAnnotationType().getClassName().equals(ModElement.Tag.class.getName())) {
 					Class<?> clazz = Class.forName(annotationData.getClassType().getClassName());
-					if (clazz.getSuperclass() == SimpleCommandBlocksModElements.ModElement.class)
-						elements.add((SimpleCommandBlocksModElements.ModElement) clazz.getConstructor(this.getClass()).newInstance(this));
+					if (clazz.getSuperclass() == ScbModElements.ModElement.class)
+						elements.add((ScbModElements.ModElement) clazz.getConstructor(this.getClass()).newInstance(this));
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		Collections.sort(elements);
-		elements.forEach(SimpleCommandBlocksModElements.ModElement::initElements);
-		this.addNetworkMessage(SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage.class,
-				SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage::buffer, SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage::new,
-				SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage::handler);
+		elements.forEach(ScbModElements.ModElement::initElements);
+		this.addNetworkMessage(ScbModVariables.WorldSavedDataSyncMessage.class, ScbModVariables.WorldSavedDataSyncMessage::buffer,
+				ScbModVariables.WorldSavedDataSyncMessage::new, ScbModVariables.WorldSavedDataSyncMessage::handler);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -80,30 +79,30 @@ public class SimpleCommandBlocksModElements {
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
 		if (!event.getPlayer().world.isRemote) {
-			WorldSavedData mapdata = SimpleCommandBlocksModVariables.MapVariables.get(event.getPlayer().world);
-			WorldSavedData worlddata = SimpleCommandBlocksModVariables.WorldVariables.get(event.getPlayer().world);
+			WorldSavedData mapdata = ScbModVariables.MapVariables.get(event.getPlayer().world);
+			WorldSavedData worlddata = ScbModVariables.WorldVariables.get(event.getPlayer().world);
 			if (mapdata != null)
-				SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
-						new SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage(0, mapdata));
+				ScbMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
+						new ScbModVariables.WorldSavedDataSyncMessage(0, mapdata));
 			if (worlddata != null)
-				SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
-						new SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage(1, worlddata));
+				ScbMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
+						new ScbModVariables.WorldSavedDataSyncMessage(1, worlddata));
 		}
 	}
 
 	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
 		if (!event.getPlayer().world.isRemote) {
-			WorldSavedData worlddata = SimpleCommandBlocksModVariables.WorldVariables.get(event.getPlayer().world);
+			WorldSavedData worlddata = ScbModVariables.WorldVariables.get(event.getPlayer().world);
 			if (worlddata != null)
-				SimpleCommandBlocksMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
-						new SimpleCommandBlocksModVariables.WorldSavedDataSyncMessage(1, worlddata));
+				ScbMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()),
+						new ScbModVariables.WorldSavedDataSyncMessage(1, worlddata));
 		}
 	}
 	private int messageID = 0;
 	public <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, PacketBuffer> encoder, Function<PacketBuffer, T> decoder,
 			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
-		SimpleCommandBlocksMod.PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
+		ScbMod.PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
 		messageID++;
 	}
 
@@ -130,9 +129,9 @@ public class SimpleCommandBlocksModElements {
 		@Retention(RetentionPolicy.RUNTIME)
 		public @interface Tag {
 		}
-		protected final SimpleCommandBlocksModElements elements;
+		protected final ScbModElements elements;
 		protected final int sortid;
-		public ModElement(SimpleCommandBlocksModElements elements, int sortid) {
+		public ModElement(ScbModElements elements, int sortid) {
 			this.elements = elements;
 			this.sortid = sortid;
 		}

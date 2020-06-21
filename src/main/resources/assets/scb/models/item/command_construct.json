@@ -1,5 +1,5 @@
 {
-  "parent": "simple_command_blocks:block/command_construct",
+  "parent": "scb:block/command_construct",
   "display": {
     "thirdperson": {
       "rotation": [

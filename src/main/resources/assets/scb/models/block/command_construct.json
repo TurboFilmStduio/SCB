@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "scb:blocks/command_construct",
+    "up": "scb:blocks/command_construct",
+    "north": "scb:blocks/command_construct",
+    "east": "scb:blocks/command_construct",
+    "south": "scb:blocks/command_construct",
+    "west": "scb:blocks/command_construct",
+    "particle": "scb:blocks/command_construct"
+  }
+}

@@ -38,13 +38,13 @@ import java.util.Collections;
 import io.netty.buffer.Unpooled;
 
 import com.softsign.simplecb.gui.CommandConstructGUIGui;
-import com.softsign.simplecb.SimpleCommandBlocksModElements;
+import com.softsign.simplecb.ScbModElements;
 
-@SimpleCommandBlocksModElements.ModElement.Tag
-public class CommandConstructBlock extends SimpleCommandBlocksModElements.ModElement {
-	@ObjectHolder("simple_command_blocks:command_construct")
+@ScbModElements.ModElement.Tag
+public class CommandConstructBlock extends ScbModElements.ModElement {
+	@ObjectHolder("scb:command_construct")
 	public static final Block block = null;
-	public CommandConstructBlock(SimpleCommandBlocksModElements instance) {
+	public CommandConstructBlock(ScbModElements instance) {
 		super(instance, 1);
 	}
 

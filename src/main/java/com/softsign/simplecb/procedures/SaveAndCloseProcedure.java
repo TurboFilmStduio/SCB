@@ -3,11 +3,11 @@ package com.softsign.simplecb.procedures;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
-import com.softsign.simplecb.SimpleCommandBlocksModElements;
+import com.softsign.simplecb.ScbModElements;
 
-@SimpleCommandBlocksModElements.ModElement.Tag
-public class SaveAndCloseProcedure extends SimpleCommandBlocksModElements.ModElement {
-	public SaveAndCloseProcedure(SimpleCommandBlocksModElements instance) {
+@ScbModElements.ModElement.Tag
+public class SaveAndCloseProcedure extends ScbModElements.ModElement {
+	public SaveAndCloseProcedure(ScbModElements instance) {
 		super(instance, 3);
 	}
 

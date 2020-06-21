@@ -2,14 +2,14 @@ modLoader="javafml"
 loaderVersion="[31,)"
 
 [[mods]]
-modId="simple_command_blocks"
+modId="scb"
 version="1.0.0"
 displayName="Simple Command Blocks"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 displayURL="https://mcreator.net"
-authors="Maks, MCreator"
+authors="Mikki, ShaneMarks on MCreator 2020"
 
-[[dependencies.simple_command_blocks]]
+[[dependencies.scb]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"
